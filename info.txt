@@ -38,3 +38,20 @@ git checkout nenwbranch
 
 # Merge the changes
 git merge newbranch -m "merge the newbranch with master"
+
+# To see all the branches
+git branch -a
+
+# To remove the newbranch after merging
+git branch -d newbranch
+
+# To remove a branch from remote
+git push origin --delete newbranch
+
+# To add a remote repository
+git remote add origin https://github.com/amir04lm26/gittest.git
+// OR
+git remote add origin git@github.com:amir04lm26/gittest.git
+
+# To push local repo to the remote
+git push -u origin master
