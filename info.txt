@@ -1,0 +1,21 @@
+# Init
+git Init
+
+# Config
+git config --global user.name 'Amir JZ'
+git config --global user.email 'z.amir04lm26@gmail.com'
+
+# Add file to staging area
+git add index.html
+
+# Check the staging area
+git status
+
+# Remove file from staging area
+git rm --cached index.html
+
+# Add specific format
+git add *.html
+
+# Add every file
+git add .
