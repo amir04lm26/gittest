@@ -74,3 +74,9 @@ git remote set-url --push origin https://github.com/amir04lm26/gittest.git
 # Push a local branch to the remote
 git checkout -b newbranch
 git push -u origin newbranch
+
+# Push changes
+git push
+
+# Get the remote changes
+git pull
