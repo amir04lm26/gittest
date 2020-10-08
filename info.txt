@@ -25,7 +25,10 @@ git commit
 
 # Commit all of the changes
 git add . && git commit
-git commit -a
+git commit -a (This will only select all files to commit & It won't add new files to commit)
+
+# Change the last commit
+git commit --amend
 
 # Create a new branch
 git branch newbranch
