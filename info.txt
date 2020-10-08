@@ -23,3 +23,5 @@ git add .
 # Commit
 git commit
 
+# Merge the changes
+git merge newbranch -m "merge the newbranch with master"
