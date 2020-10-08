@@ -55,3 +55,19 @@ git remote add origin git@github.com:amir04lm26/gittest.git
 
 # To push local repo to the remote
 git push -u origin master
+(push with the -u (short for --set-upstream))
+
+# TO change the remote url
+usage: git remote set-url [--push] <name> <newurl> [<oldurl>]
+   or: git remote set-url --add <name> <newurl>
+   or: git remote set-url --delete <name> <url>
+
+    --push                manipulate push URLs
+    --add                 add URL
+    --delete              delete URLs
+
+git remote set-url --push origin https://github.com/amir04lm26/gittest.git
+
+# Push a local branch to the remote
+git checkout -b newbranch
+git push -u origin newbranch
