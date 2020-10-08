@@ -23,5 +23,18 @@ git add .
 # Commit
 git commit
 
+# Commit all of the changes
+git add . && git commit
+git commit -a (This will only select all files to commit & It won't add new files to commit)
+
+# Change the last commit
+git commit --amend
+
+# Create a new branch
+git branch newbranch
+
+# Change the branch
+git checkout nenwbranch
+
 # Merge the changes
 git merge newbranch -m "merge the newbranch with master"
