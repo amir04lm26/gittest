@@ -19,3 +19,7 @@ git add *.html
 
 # Add every file
 git add .
+
+# Commit
+git commit
+
