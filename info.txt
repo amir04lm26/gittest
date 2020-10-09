@@ -11,8 +11,29 @@ git add index.html
 # Check the staging area
 git status
 
-# Remove file from staging area
+# Add sets of changes to the stage
+git add
+
+# Git three trees
+- repository
+- staging index
+- working
+* Git label the changes usign SHA-1 algoritum
+    - It's using the data to create this hash so if if the data changes, It will findout.
+    - It's also using the commit message, author & also parent
+
+# Discard the changes that we've made in working three
+git checkout -- index.html
+
+# Unstage the file or files that we've added to the staging three (using git add )
+# *Revert back to the working three
+git reset Head info.txt
+
+# Remove file from repository three & staging three
 git rm --cached index.html
+
+# undo with
+git add index.html
 
 # Add specific format
 git add *.html
@@ -21,14 +42,23 @@ git add *.html
 git add .
 
 # Commit
+# *Use present tense
 git commit
 
 # Commit all of the changes
 git add . && git commit
-git commit -a (This will only select all files to commit & It won't add new files to commit)
+git commit -a (Skip adding to the stage)(This will only select all files to commit & It won't add new files to commit)
 
 # Change the last commit
 git commit --amend
+
+# Log the commits
+git loggit log -n 5 (Limits the commits to the 5 most recent ones)
+git log --since 2019-01-01
+git log --until 2019-01-01
+git log --author "Amir" (It doesn't need the full name)
+git log --grep="Bugfix" (Globaly search for the regular expression)
+git log --grep="ghi" (Github Issue (standard expression to start the commit with))
 
 # Create a new branch
 git branch newbranch
@@ -80,3 +110,13 @@ git push
 
 # Get the remote changes
 git pull
+
+# Compare differences (compare file a which is the version in the repository &
+# file b which is the version in the working directory)
+git diff
+    - e to move forward
+    - w to move backward
+    - q to quit
+
+# Compare changes in the staging three against repository three
+git diff --staged
