@@ -1,0 +1,2 @@
+This is the file that I want to commit directly to the repository with -a flag.
+But it wont work because, we have to add it manualy.
