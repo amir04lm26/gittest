@@ -184,3 +184,6 @@ git checkout e60093c -- info.txt (--  => to say stay in the same branch)
 
     # Add some new changes to the file in the old commit and create a new commit
     git commit -am "adds a new commit base on the info in a old commit"
+
+# Revert a commit(Undo it)
+git revert e6df009
