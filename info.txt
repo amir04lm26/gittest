@@ -49,6 +49,21 @@ git commit
 git add . && git commit
 git commit -a (Skip adding to the stage)(This will only select all files to commit & It won't add new files to commit)
 
+# Use -a & -m flags together
+git add -am
+
+# Multi line commit (don't use -m flag)
+git commit
+    # Abort the commit
+    leave the message empty
+
+# Change the git editor globaly
+git config --global core.editor "code --wait"
+
+# Get the condensed version of commits
+    # Get the first line of commits with the shorten SHA (It only shows a gist of every commit)
+git log --oneline
+
 # Change the last commit
 git commit --amend
 
@@ -134,3 +149,28 @@ git mv app.js main.js
 
 # Move a file
 git mv app.js src/app.js
+
+# View a previous commit
+git show f302273d10813a768f13790d65c00c8e1452659d
+git show f302273
+git show f302273 --color-words
+
+# View the differences between commits
+git diff <The name of the oldest commit (that we want)>..<The name of the ending commit (that we want)>
+git diff e3403b74..091e423
+git diff e3403b74..HEAD(we can use HEAD to compare to the latest commit)
+
+# Discard changes
+git checkout -- index.html
+
+# Dicard all changes
+git checkout -- .
+
+# Unstage files
+git reset HEAD index.html
+
+# Discard changes that we added to the staging three
+git reset HEAD index.html
+git checkout -- index.html
+OR
+git reset HEAD index.html && git checkout -- index.html
