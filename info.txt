@@ -175,6 +175,7 @@ git checkout -- index.html
 OR
 git reset HEAD index.html && git checkout -- index.html
 
+# (Revert a file in old commits)
 # Check files in older commits
 git checkout e60093c -- info.txt (--  => to say stay in the same branch)
     * It will set the changes to the staging three
@@ -187,3 +188,15 @@ git checkout e60093c -- info.txt (--  => to say stay in the same branch)
 
 # Revert a commit(Undo it)
 git revert e6df009
+
+# Remove files (would remove untracked files)
+git remove
+    -i interactive
+    -n show the file that would remove
+    -f remove the files
+
+# List tracking files
+git ls-tree HEAD
+
+** Git only track directories that have a file inside
+    - To keep tracking of a empty directory we can add .gitkeep file or anything else to it
