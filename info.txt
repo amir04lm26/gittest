@@ -174,3 +174,6 @@ git reset HEAD index.html
 git checkout -- index.html
 OR
 git reset HEAD index.html && git checkout -- index.html
+
+
+NEW LINE
