@@ -187,3 +187,6 @@ git checkout e60093c -- info.txt (--  => to say stay in the same branch)
 
 # Revert a commit(Undo it)
 git revert e6df009
+
+
+NEW LINE
