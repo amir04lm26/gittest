@@ -111,12 +111,26 @@ git push
 # Get the remote changes
 git pull
 
-# Compare differences (compare file a which is the version in the repository &
+# Compare differences (compare file a which is the version in the staging three &
 # file b which is the version in the working directory)
 git diff
-    - e to move forward
-    - w to move backward
+    - e,f,space to move forward
+    - w,b to move backward
     - q to quit
+    -S + return to toggle the pagginator
+
+# Show different words only
+git diff --color-words
 
 # Compare changes in the staging three against repository three
+git diff --cached(old method, both of them works)
 git diff --staged
+
+# Delete files (need commit to apply to the repository)
+git rm file_to_delete.txt
+
+# Rename a file
+git mv app.js main.js
+
+# Move a file
+git mv app.js src/app.js
