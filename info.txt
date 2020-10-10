@@ -198,5 +198,8 @@ git remove
 # List tracking files
 git ls-tree HEAD
 
+# Remove the last commit
+git reset --soft HEAD~1
+
 ** Git only track directories that have a file inside
     - To keep tracking of a empty directory we can add .gitkeep file or anything else to it
