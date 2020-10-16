@@ -68,27 +68,47 @@ git log --oneline
 git commit --amend
 
 # Log the commits
-git loggit log -n 5 (Limits the commits to the 5 most recent ones)
+git log
+git log -n 5 (Limits the commits to the 5 most recent ones)
+git log -5
 git log --since 2019-01-01
 git log --until 2019-01-01
+git log --until "3 days ago"
+git log --after=2.weeks --before=3.days
 git log --author "Amir" (It doesn't need the full name)
 git log --grep="Bugfix" (Globaly search for the regular expression)
 git log --grep="ghi" (Github Issue (standard expression to start the commit with))
+git log info.txt (Show the changes that affected this file)
+git log -p (Look at actual changes along with each commit)
+git log --stat (Show statistics about what was changed in each commit)
+git log --format=short (medium is default, oneline, short, full, fuller, email, raw)
+git log --oneline (It's also shorten the hash)
+git log --graph
+git log --graph --all --oneline --decorate
+
+# Show all of the branches
+git branch
 
 # Create a new branch
 git branch newbranch
 
+# To see all the branches
+git branch -a
+
 # Change the branch
 git checkout nenwbranch
+
+# Create a new branch and check it out
+git checkout -b new_branch
+
+# To see all merged branches
+git branch --merged
 
 # Merge the changes
 git merge newbranch -m "merge the newbranch with master"
 
-# To see all the branches
-git branch -a
-
 # To remove the newbranch after merging
-git branch -d newbranch
+git branch -d newbranch (we can also use numbers and underscore in the branch name)
 
 # To remove a branch from remote
 git push origin --delete newbranch
@@ -160,6 +180,9 @@ git diff <The name of the oldest commit (that we want)>..<The name of the ending
 git diff e3403b74..091e423
 git diff e3403b74..HEAD(we can use HEAD to compare to the latest commit)
 
+# View differences between branches
+git diff master..new_branch ((Not Always)older branch first to see the changes since that time)
+
 # Discard changes
 git checkout -- index.html
 
@@ -203,3 +226,30 @@ git reset --soft HEAD~1
 
 ** Git only track directories that have a file inside
     - To keep tracking of a empty directory we can add .gitkeep file or anything else to it
+
+# Select the parent (Ancestry)
+de14621f^ (SHA^ or SHA~ or SHA~1) (^ => caret)
+HEAD^
+master^ (commit before the last commit in the master branch)
+
+# Select the grand parent
+de14621f^^
+HEAD^^
+master^^
+HEAD~2
+
+# Select the great grand parent
+de14621f^^^
+HEAD^^^
+master^^^
+HEAD~3
+
+# List the contents of a tree object
+git ls-tree <tree-ish>
+git ls-tree HEAD
+
+# List the contents with patern matching
+git ls-tree HEAD assets (assets => directory)
+
+# List the contents of a directory with patern matching
+git ls-tree HEAD assets/
