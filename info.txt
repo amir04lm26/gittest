@@ -86,7 +86,7 @@ git log --oneline (It's also shorten the hash)
 git log --graph
 git log --graph --all --oneline --decorate
 
-# Show all of the branches
+# Show all of the branches (remotes & locals)
 git branch
 
 # Create a new branch
@@ -95,28 +95,47 @@ git branch newbranch
 # To see all the branches
 git branch -a
 
+# To see all remote branches
+git branch -r
+
 # Change the branch
 git checkout nenwbranch
 
 # Create a new branch and check it out
 git checkout -b new_branch
+git checkout -b new_branch master (master is a optional parameter to select starting point)
 
 # To see all merged branches
 git branch --merged
 
+# To see all branches that hasn't merged
+git branch --no-merged
+
 # Merge the changes
 git merge newbranch -m "merge the newbranch with master"
+
+# Abort the merge
+git merge --abort
+
+# Rename a branch
+git branch -m new_name (-m => move), (It changes the current branch name)
+git branch -m newbranch new_name (It changes the branch's name that we gave in the first parameter)
 
 # To remove the newbranch after merging
 git branch -d newbranch (we can also use numbers and underscore in the branch name)
 
 # To remove a branch from remote
+git push origin :newbranch (old way)
 git push origin --delete newbranch
 
 # To add a remote repository
 git remote add origin https://github.com/amir04lm26/gittest.git
 // OR
 git remote add origin git@github.com:amir04lm26/gittest.git
+
+# To delete a remote repository
+git remote rm origin
+    * origin => the name of the remote repository
 
 # To push local repo to the remote
 git push -u origin master
@@ -140,11 +159,29 @@ git remote set-url --push origin https://github.com/amir04lm26/gittest.git
 git checkout -b newbranch
 git push -u origin newbranch
 
+# To set upstream branch with tracking
+git branch -u origin/my_branch my_branch
+    * origin/my_branch => remote
+    * my_branch => local
+
+# To remove tracking of a upstream branch
+git branch --unset-upstream my_branch
+
 # Push changes
 git push
 
-# Get the remote changes
+# Fetch the changes (does not change the master branch, does not merge)
+git fetch origin
+git fetch
+    - In fetch we need to merge
+    git merge origin/master (we are on master)
+
+# Get the remote changes (does the both git fetch & git merge at once)
 git pull
+
+# Create a branch from remote branches (or another branches)
+git branch new_branch origin/my_branch
+    * We can not check remote branches
 
 # Compare differences (compare file a which is the version in the staging three &
 # file b which is the version in the working directory)
@@ -182,6 +219,9 @@ git diff e3403b74..HEAD(we can use HEAD to compare to the latest commit)
 
 # View differences between branches
 git diff master..new_branch ((Not Always)older branch first to see the changes since that time)
+
+# View differences between files in different branches
+git diff --color-words master..new_branch index.html
 
 # Discard changes
 git checkout -- index.html
@@ -253,3 +293,57 @@ git ls-tree HEAD assets (assets => directory)
 
 # List the contents of a directory with patern matching
 git ls-tree HEAD assets/
+
+# Soft reset (Moves the HEAD pointer)
+git reset --soft <tree-ish>
+git reset --soft HEAD^
+    # It leaves the changes in the staging tree
+    # We can use the same command to un-reset (with the SHA)
+
+# Mixed reset (This is the default choice) (Moves the HEAD pointer
+  & Changes the staging index to match the repository)
+git reset --mixed <tree-ish>
+git reset
+    # It leaves the changes in the working directory
+    # We can use the same command to un-reset (with the SHA)
+
+# Hard reset (Moves the HEAD pointer 
+  & Changes the staging index to match the repository
+  & Changes the working directory to match the repository)
+git reset --hard <tree-ish>
+    # Previous commits and all the chnages will be discarded
+    # We can use the same command to un-reset (with the SHA)
+
+# Make the child branch to look exactly the same as the parent
+git reset --hard newbranch (newbranch => the parent name)
+
+# Stash the changes
+git stash save "label goes here"
+    * Stash is independent from branches
+    * So we can use a stash in every branches that we want
+
+# Stash the changes include untracked ones
+git stash -u save ""
+
+# View stashed files
+git stash list
+
+# View a single stash (shows the diff)
+git stash show stash@{0}
+
+# View a single stash (the changes)
+git stash show -p stash@{0}
+
+# Retrieve stash files (removes a single stash & apply it to our working directory)
+git stash pop
+    * pop the first of the list (newest item)
+git stash pop stash@{0}
+
+# Retrieve stash files (without deleting the stash)
+git stash apply
+
+# Delete a stash
+git stash drop stash@{0}
+
+# Delete all stashes
+git clear stash
